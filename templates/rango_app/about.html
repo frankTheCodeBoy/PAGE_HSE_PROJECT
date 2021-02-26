@@ -1,0 +1,17 @@
+{% extends 'rango_app/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    About
+{% endblock %}
+
+{% block body_block %}
+    <div class="container">
+    <h1>About Rango</h1>
+    <p class="lead">This is a picture of rango.</p>
+    <div>
+        <img class="rangoimage" src ="{% static 'images/rangoone.png' %}"
+        alt="picture of rango">
+    </div>
+</div>   
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'rango_app/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block title_block %}
+    Login
+{%  endblock %}
+
+{% block body_block %}
+<div class="container">
+<h1 class="form-signin-heading">Please Sign in</h1>
+<form 
+    id="login_form"
+    method="post"
+    action=".">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <input type="submit" value="submit" class="btn btn-primary">
+    {% endbuttons %}
+</form>
+<p>
+    Not a member?<a href="{% url 'registration_register' %}">Register!</a>
+</p>
+</div>
+{% endblock %}
