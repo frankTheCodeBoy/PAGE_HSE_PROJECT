@@ -40,6 +40,7 @@ elif environ.get('DEBUG') == 'False':
 INSTALLED_APPS = [
     # My Apps.
     'whitenoise.runserver_nostatic',
+    'django_heroku',
     'rango_app',
     'registration',
     'bootstrap4',
@@ -144,3 +145,6 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
+# Heroku Settings
+import django_heroku
+django_heroku.settings(locals())
