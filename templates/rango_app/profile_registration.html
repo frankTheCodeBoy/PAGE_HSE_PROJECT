@@ -1,0 +1,30 @@
+{% extends 'rango_app/base.html' %}
+{% load bootstrap4 %}
+    {% load static %}
+    
+    {% block title_block %}
+        Create a profile
+    {% endblock %}
+    
+    {% block body_block %}
+    <div class="jumbotron p-4">
+        <div class="container">
+            <h1 class="jumbotron-heading">Create a profile on the go!</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <form method="post"
+                  action="{% url 'rango_app:register_profile' %}"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% buttons %}
+                <input type="submit" class="btn btn-primary" 
+                    value="Create Profile" />
+                {% endbuttons %}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

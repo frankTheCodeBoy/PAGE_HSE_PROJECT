@@ -5,6 +5,11 @@ from . import views
 app_name = "rango_app"
 urlpatterns = [
     path(
+        'register_profile/', 
+        views.register_profile, 
+        name='register_profile'
+    ),
+    path(
         "", 
         views.index, 
         name='index',
