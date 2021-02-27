@@ -136,6 +136,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+WHITENOISE_MANIFEST_STRICT = False
+
 if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Static files (CSS, JavaScript, Images)
