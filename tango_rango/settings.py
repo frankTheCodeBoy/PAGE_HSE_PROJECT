@@ -136,10 +136,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-WHITENOISE_MANIFEST_STRICT = False
-
 if not DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
