@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['page-house.herokuapp.com']
 INSTALLED_APPS = [
     # My Apps.
     'whitenoise.runserver_nostatic',
+    'django_heroku',
     'rango_app',
     'registration',
     'bootstrap4',
