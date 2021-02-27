@@ -136,8 +136,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-if not DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
@@ -146,8 +146,8 @@ MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
 # Heroku Settings
-import django_heroku
-django_heroku.settings(locals())
+# import django_heroku
+# django_heroku.settings(locals())
 
 
 DEBUG_PROPAGATE_EXCEPTIONS = True

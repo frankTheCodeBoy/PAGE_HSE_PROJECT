@@ -34,4 +34,5 @@ urlpatterns = [
         ),
 
     path('accounts/', include('registration.backends.simple.urls')),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
