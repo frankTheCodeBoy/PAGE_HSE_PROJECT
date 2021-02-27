@@ -16,8 +16,6 @@ from os import path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = path.join(BASE_DIR, 'templates')
-STATIC_DIR = path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [STATIC_DIR,]
 MEDIA_DIR = path.join(BASE_DIR, 'media')
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +26,7 @@ with open('tango_rango/my_safe.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -37,6 +35,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # My Apps.
+    'whitenoise.runserver_nostatic',
     'rango_app',
     'registration',
     'bootstrap4',
@@ -52,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -131,11 +131,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+if not DEBUG:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-
+import dj_database_url
+prod_db = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
