@@ -89,6 +89,9 @@ def about(request):
 def restricted(request):
     message = f"Welcome {request.user.username.title()}! "
     message += f"You can view this content because you are logged in."
+    message += f"\nYou can always leave me feedback or express concerns"
+    message += f" at francomania23@live.com. Enjoy!"
+    message += f"\nSpecial regards, FrankOlum."
     context_dict = {'message': message}
     return render(request, 'rango_app/restricted.html', context_dict)
 

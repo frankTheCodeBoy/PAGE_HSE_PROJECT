@@ -44,7 +44,7 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 border">
 
-    <a class="navbar-brand" href="#">Rango</a>
+    <a class="navbar-brand" href="#"><strong>Rango Page House</strong></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarCollapse" aria-controls="navbarCollapse"
@@ -81,12 +81,21 @@
         href="{% url 'rango_app:list_profiles' %}">List Profiles</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{% url 'rango_app:restricted' %}">
+          Restricted
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{% url 'rango_app:add_category' %}">
             Add New Category
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{% url 'auth_logout' %}">Logout</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'auth_password_change' %}?next='auth_password_change_done' 
+    ">Change Password</a>
     </li>
     {% else %}
     <li class="nav-item">
