@@ -28,7 +28,7 @@ with open('tango_rango/my_safe.txt') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://page-house.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
