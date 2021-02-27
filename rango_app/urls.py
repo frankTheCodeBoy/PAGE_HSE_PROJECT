@@ -35,7 +35,7 @@ urlpatterns = [
         name='add_page',
     ),
     path(
-        'restricted',
+        'restricted/',
         views.restricted,
         name='restricted'
     ),
