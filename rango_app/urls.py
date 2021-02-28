@@ -54,7 +54,7 @@ urlpatterns = [
         views.ProfileView.as_view(), 
         name='profile'),
     path(
-        'profile/', 
+        'profiles/', 
         views.ListProfilesView.as_view(), 
         name='list_profiles'
     ),
