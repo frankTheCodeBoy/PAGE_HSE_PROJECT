@@ -9,60 +9,61 @@ from rango_app.models import Category, Page
 
 def populate():
 
-    python_pages = [
+    fashion_pages = [
         {
-            'title': "Official Python Tutorial", 
-            'url': "https://docs.python.org/2/tutorial/",
-            'views': 25
+            'title': "Men Classic Fashion Lifestyle", 
+            'url': "https://www.menfashion.com/",
+            'views': 15
         },
         {
-            'title': "How to think like a Computer Scientist",
-            'url': "https:www.greenteapress.com/thinkpython/",
+            'title': "Real Men Real Style",
+            'url': "https://www.realmenrealstyle/",
             'views': 57
         },
         {
-            'title': "Learn Python in 10 Minutes",
-            'url': "https://www.korokithakis.net/tutorials/python/",
-            'views': 34
+            'title': "The Super Woman Style Guide",
+            'url': "https://www.thetrendspotter.net/top-style-tips-for-women/",
+            'views': 44
         },
     ]
 
-    django_pages = [
+    travel_pages = [
         {
-            'title': "Official Django Tutorial",
-            'url': "https://docs.djangoproject.com/en/1.9/intro/tutorial01/",
+            'title': "My 100 Best Tips From Ten Years Of Travel",
+            'url': "https://www.neverendingfootsteps.com/100-best-travel-tips/",
             'views': 101
         },
         {
-            'title': "Django Rocks",
-            'url': "https://www.djangorocks.com/",
-            'views': 14
+            'title': "Ten Places To Go In Africa And What To Do There!",
+            'url':
+            "https://www.smartertravel.com/best-places-to-go-in-africa-where-to-go-in-africa/",
+            'views': 25
         },
         {
-            'title': "How to Tango with Django",
-            'url': "https://www.tangowithdjango.com/",
+            'title': "Enjoying Your Flight Indefinately",
+            'url': "https://www.foreverbreak.com/travel/tips/flight-enjoyable/",
             'views': 35
         },
     ]
 
-    other_pages = [
+    food_pages = [
         {
-            'title': "Bottle",
-            'url': "https://bottlepy.orgs/docks/dev/",
+            'title': "How To Prepare Italian Pizza",
+            'url':"https://www.walksofitaly.com/blog/food-and-wine/Italian-pizza-dough-recipe/",
             'views': 37       
         },
         {
-            'title': "Flask",
-            'url': "https://flask.pocoo.org",
+            'title': "100 Most Popular African Foods",
+            'url': "https://www.tasteatlas.com/100-most-popular-foods-in-africa/",
             'views': 29
         },
     ]
 
 
     cats = {
-        "Python": {"pages": python_pages , "views": 128, "likes": 64},
-        "Django": {"pages": django_pages, "views": 64, "likes": 32},
-        "Other Frameworks": {"pages": other_pages, "views": 32, "likes": 16},
+        "Fashion and Style": {"pages": fashion_pages, "views": 128, "likes": 64},
+        "Food and Cuisine": {"pages": food_pages, "views": 64, "likes": 32},
+        "Travel and Leisure": {"pages": travel_pages, "views": 32, "likes": 16},
     }
 
     for cat, cat_data in cats.items():
