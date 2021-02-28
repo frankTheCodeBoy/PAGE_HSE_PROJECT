@@ -26,9 +26,13 @@ with open('tango_rango/my_safe.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['page-house.herokuapp.com', 'localhost']
+
 
 if environ.get('DEBUG') == 'True':
     DEBUG = True
@@ -140,7 +144,7 @@ if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
