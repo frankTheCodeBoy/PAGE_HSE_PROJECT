@@ -23,8 +23,9 @@
                     height="64" src="http://lorempixel.com/64/64/people/"/>
                     {% endif %}
                     <h4 class="list-group-item-heading">
-                    <a href="{% url 'rango_app:profile' 
-                    listuser.user.username %}">{{ listuser.user.username }}</a>
+                    <a href=
+                    "https://page-house.herokuapp.com/profile/{{listuser.user.username}}/">
+                    {{ listuser.user.username }}</a>
                     </h4>
                 </div>
                 {% endfor %}
