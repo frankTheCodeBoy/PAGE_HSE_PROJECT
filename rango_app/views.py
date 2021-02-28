@@ -217,7 +217,7 @@ class ListProfilesView(View):
         
         return render(request,
                       'rango_app/list_profiles.html',
-                      {'user_profile_list': profiles})
+                      {'userprofile_list': profiles})
 
 @login_required
 def like_category(request):

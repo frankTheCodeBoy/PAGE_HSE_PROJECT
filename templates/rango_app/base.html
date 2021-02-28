@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-{% load bootstrap4 %}
-{% load rango_app_template_tags %}
 {% load static %}
+{% load rango_app_template_tags %}
 <html>
-<head lang="en">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1,
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, 
     shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" 
+    type="image/x-icon">  
     <title>
         Rango -
         {% block title_block %}
-            How to Tango with Django!
         {% endblock %}
     </title>
+    {% load bootstrap4 %}
     {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"
-     type="image/x-icon">
     <style type="text/css">
      .sidenav{
                 float: right; width:15%; font-style:italic;
@@ -42,6 +43,7 @@
                 margin: 2px 0px 0px 5px;
      }
     </style>
+    {% bootstrap_javascript jquery='full' %}
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 border">

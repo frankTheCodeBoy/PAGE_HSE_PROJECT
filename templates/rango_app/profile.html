@@ -1,11 +1,9 @@
 {% extends 'rango_app/base.html' %}
-{%load bootstrap4 %}
-{% load static %}
-    
+{% load static %}  
 {% block title_block %}
     Profile for {{ selected_user.username }}
 {% endblock %}
-    
+{% load bootstrap4 %}
     {% block body_block %}
     <div class="jumbotron p-4">
         <div class="container">

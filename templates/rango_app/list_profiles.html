@@ -1,37 +1,39 @@
 {% extends 'rango_app/base.html' %}
-    {% load static %}
-    
-    {% block title_block %}
-        User Profiles
-    {% endblock %}
-    
-    {% block body_block %}
-    <div class="jumbotron p-4">
-        <div class="container">
-            <h1 class="jumbotron-heading">User Profiles</h1>
-        </div>
-    </div>
-    
-    <div class="container">
-        <div class="row">
-            {% if user_profile_list %}
-            <div class="panel-body">
-                <div class="list-group">
-                {% for list_user in user_profile_list %}
-                    <div class="list-group-item">
-                        <h4 class="list-group-item-heading">
-                            <a href="{% url 'rango_app:profile' 
-                            list_user.user.username %}">
-                                {{ list_user.user.username }}
-                            </a>
-                        </h4>
-                    </div>
-                {% endfor %}
+{% load static %}
+
+{% block title_block %}User Profiles{% endblock %}
+
+{% block body_block %}
+<div class="container">
+<h1>User Profiles</h1>
+
+<div class="panel">
+    {% if userprofile_list %}
+    <div class="panel-heading">
+        <!-- Display search results in an ordered list -->
+        <div class="panel-body">
+            <div class="list-group">
+                {% for listuser in userprofile_list %}
+                <div class="list-group-item">
+                    {% if listuser.picture %}
+                    <img width="64" height="64" 
+                    src="{{ MEDIA_URL}}{{listuser.picture}}"/>
+                    {% else %}
+                    <img width="64" 
+                    height="64" src="http://lorempixel.com/64/64/people/"/>
+                    {% endif %}
+                    <h4 class="list-group-item-heading">
+                    <a href="{% url 'rango_app:profile' 
+                    listuser.user.username %}">{{ listuser.user.username }}</a>
+                    </h4>
                 </div>
+                {% endfor %}
             </div>
-            {% else %}
-            <p>There are no users present on Rango.</p>
-            {% endif %}
         </div>
     </div>
-    {% endblock %}
+    {% else %}
+        <p>There are no users for the site.</p>
+    {% endif %}
+</div>
+</div>
+{% endblock %}
