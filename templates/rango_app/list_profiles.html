@@ -5,7 +5,7 @@
 
 {% block body_block %}
 <div class="container">
-<h1>User Profiles</h1>
+<h1 class="jumbotron-heading">User Profiles</h1>
 
 <div class="panel">
     {% if userprofile_list %}
@@ -19,8 +19,7 @@
                     <img width="64" height="64" 
                     src="{{ MEDIA_URL}}{{listuser.picture}}"/>
                     {% else %}
-                    <img width="64" 
-                    height="64" src="http://lorempixel.com/64/64/people/"/>
+                    <img src="https://via.placeholder.com/64x64.jpg?text=myimage">
                     {% endif %}
                     <h4 class="list-group-item-heading">
                     <a href=
