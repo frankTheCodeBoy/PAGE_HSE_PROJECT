@@ -18,7 +18,31 @@
     {% load bootstrap4 %}
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
-    <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <style type="text/css">
+        .sidenav{
+                float: right; width:15%; font-style:italic;
+                margin: 0px 20px 0px 0px; padding: 5px;
+                border-top: 1px solid red; border-bottom: 1px solid red;
+                height:370px; overflow-x: hidden;
+            }
+        .rangoimage{
+                 float: left; width: 70%; margin-left:6px;
+                 height: 320px;
+            }
+        .tdecorate{
+                text-decoration: underline; font-style:oblique;
+                color: darkBlue;
+            }
+        .mydisplay{
+                color: red; font-weight: bold;
+            }
+        .picformat{
+                margin: 0px 0px 10px 30px; float:left; width:25%;
+            }
+        .indent{
+                margin: 2px 0px 0px 5px;
+            }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 border">
@@ -73,8 +97,7 @@
         <a class="nav-link" href="{% url 'auth_logout' %}">Logout</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'auth_password_change' %}?next='auth_password_change_done' 
-    ">Change Password</a>
+        <a class="nav-link" href="{% url 'auth_password_change' %}?next='auth_password_change_done' ">Change Password</a>
     </li>
     {% else %}
     <li class="nav-item">
