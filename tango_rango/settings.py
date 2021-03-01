@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     
 ]
 
@@ -178,3 +180,15 @@ LOGGING = {
 
 import django_heroku
 django_heroku.settings(config=locals(), staticfiles=True, logging=False)
+
+# Cloudinary settings
+import cloudinary
+CLOUDINARY_STORAGE = {
+  "cloud_name": 'amfrankolum',
+  "api_key": '752891399345978'
+  "api_secret": 'HDVE_ZDEyf3Fy8HD-Vo2IZ_t9sQ',
+  "enhance_image_tag": True,
+  "static_file_support": True
+  },
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
