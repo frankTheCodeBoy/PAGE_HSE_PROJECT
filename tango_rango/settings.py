@@ -26,17 +26,9 @@ with open('tango_rango/my_safe.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-if DEBUG:
-    ALLOWED_HOSTS = ['*']
-else:
-    ALLOWED_HOSTS = ['page-house.herokuapp.com', 'localhost']
+DEBUG = False
 
-
-if environ.get('DEBUG') == 'True':
-    DEBUG = True
-elif environ.get('DEBUG') == 'False':
-    DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -139,21 +131,23 @@ USE_L10N = True
 
 USE_TZ = True
 
-if not DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# favicon serving settings
+WHITENOISE_ROOT = path.join(BASE_DIR, "root_files/assets")
+WHITENOISE_INDEX_FILE = True
 
 # Heroku Settings
 import django_heroku
 django_heroku.settings(locals())
 
-
-
+# Logging
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
