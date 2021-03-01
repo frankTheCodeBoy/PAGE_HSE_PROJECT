@@ -26,7 +26,7 @@ with open('tango_rango/my_safe.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -179,16 +179,16 @@ LOGGING = {
 }}
 
 import django_heroku
-django_heroku.settings(config=locals(), staticfiles=True, logging=False)
+django_heroku.settings(config=locals(), staticfiles=False, logging=False)
 
 # Cloudinary settings
 import cloudinary
 CLOUDINARY_STORAGE = {
-  "cloud_name": 'amfrankolum',
-  "api_key": '752891399345978'
-  "api_secret": 'HDVE_ZDEyf3Fy8HD-Vo2IZ_t9sQ',
-  "enhance_image_tag": True,
-  "static_file_support": True
+  "CLOUD_NAME" : 'amfrankolum',
+  "API_KEY" : '752891399345978',
+  "API_SECRET" : 'HDVE_ZDEyf3Fy8HD-Vo2IZ_t9sQ',
+  "ENHANCE_IMAGE_TAG" : True,
+  "STATIC_FILE_SUPPORT" : True
   },
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
