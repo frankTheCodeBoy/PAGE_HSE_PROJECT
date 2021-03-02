@@ -26,7 +26,7 @@ with open('tango_rango/my_safe.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Application definition
@@ -176,4 +176,4 @@ LOGGING = {
 }}
 
 import django_heroku
-django_heroku.settings(config=locals(), staticfiles=False, logging=False)
+django_heroku.settings(config=locals(), staticfiles=True, logging=False)
