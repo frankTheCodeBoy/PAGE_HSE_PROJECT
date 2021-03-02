@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'rango_app',
     'registration',
     'bootstrap4',
-    'django_heroku',
     # Default django apps.
     'django.contrib.admin',
     'django.contrib.auth',
@@ -134,7 +133,6 @@ STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Logging
 LOGGING = {
@@ -174,6 +172,3 @@ LOGGING = {
         'propagate': False,
     },
 }}
-
-import django_heroku
-django_heroku.settings(config=locals(), staticfiles=True, logging=False)
