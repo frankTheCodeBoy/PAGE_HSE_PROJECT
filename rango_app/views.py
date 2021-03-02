@@ -4,7 +4,7 @@ from .models import Category, Page, UserProfile
 from .forms import CategoryForm, PageForm, UserForm, UserProfileForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-import datetime
+from datetime import datetime
 from django.contrib.auth.models import User
 from rango_app.templatetags.rango_app_template_tags import get_category_list
 from django.views import View
