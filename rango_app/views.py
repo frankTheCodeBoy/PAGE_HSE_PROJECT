@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse, HttpResponseRedirect
 from .models import Category, Page, UserProfile
 from .forms import CategoryForm, PageForm, UserForm, UserProfileForm
 from django.contrib.auth.decorators import login_required
-from datetime import datetime
-from registration.backends.simple.views import RegistrationView
+from django.http import HttpResponse
+import datetime
 from django.contrib.auth.models import User
 from rango_app.templatetags.rango_app_template_tags import get_category_list
 from django.views import View
@@ -13,7 +12,6 @@ from django.utils.decorators import method_decorator
 
 def index(request):
     """The Home Page for Rango"""
-    # request.session.set_test_cookie()
     category_list = Category.objects.order_by("-likes")[:6]
     page_list = Page.objects.order_by("-views")[:6]
     context_dict = {'categories': category_list, 'pages': page_list}
@@ -79,9 +77,6 @@ def add_page(request, category_name_slug):
 
 def about(request):
     """The About Page for Rango"""
-    # if request.session.test_cookie_worked():
-    #    print('TEST COOKIE WORKED!')
-    #     request.session.delete_test_cookie()
     return render(request, 'rango_app/about.html', {})
 
 
@@ -139,7 +134,7 @@ def track_url(request):
             else:
                 pass
 
-    return HttpResponseRedirect(url)
+    return redirect(url)
 
 @login_required
 def register_profile(request):

@@ -14,11 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, reverse, include
 from django.conf import settings
 from django.conf.urls.static import static
 from registration.backends.simple.views import RegistrationView
-from django.urls import reverse
 
 class MyRegistrationView(RegistrationView):
     def get_success_url(self, user):

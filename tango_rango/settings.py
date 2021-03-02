@@ -27,26 +27,23 @@ with open('tango_rango/my_safe.txt') as f:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
     # My Apps.
-    'django_heroku',
     'rango_app',
     'registration',
     'bootstrap4',
+    'django_heroku',
     # Default django apps.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
-    'cloudinary',
     
 ]
 
@@ -179,16 +176,4 @@ LOGGING = {
 }}
 
 import django_heroku
-django_heroku.settings(config=locals(), staticfiles=False, logging=False)
-
-# Cloudinary settings
-import cloudinary
-CLOUDINARY_STORAGE = {
-  "CLOUD_NAME" : 'amfrankolum',
-  "API_KEY" : '752891399345978',
-  "API_SECRET" : 'HDVE_ZDEyf3Fy8HD-Vo2IZ_t9sQ',
-  "ENHANCE_IMAGE_TAG" : True,
-  "STATIC_FILE_SUPPORT" : True
-  },
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+django_heroku.settings(config=locals())
