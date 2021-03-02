@@ -176,4 +176,4 @@ LOGGING = {
 }}
 
 import django_heroku
-django_heroku.settings(config=locals(), staticfiles=True, logging=False)
+django_heroku.settings(config=locals(), staticfiles=False, logging=False)
